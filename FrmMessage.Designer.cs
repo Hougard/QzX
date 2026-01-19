@@ -40,20 +40,19 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(lblCorrect, 0, 2);
             tableLayoutPanel1.Controls.Add(lblPts, 0, 1);
-            tableLayoutPanel1.Controls.Add(lblResult, 0, 0);
             tableLayoutPanel1.Controls.Add(btnProcede, 0, 3);
+            tableLayoutPanel1.Controls.Add(lblCorrect, 0, 2);
+            tableLayoutPanel1.Controls.Add(lblResult, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel1.Size = new Size(377, 220);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel1.Size = new Size(652, 383);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // lblCorrect
@@ -61,7 +60,7 @@
             lblCorrect.Anchor = AnchorStyles.None;
             lblCorrect.AutoSize = true;
             lblCorrect.Font = new Font("Segoe UI", 16F);
-            lblCorrect.Location = new Point(146, 95);
+            lblCorrect.Location = new Point(283, 213);
             lblCorrect.Name = "lblCorrect";
             lblCorrect.Size = new Size(85, 30);
             lblCorrect.TabIndex = 2;
@@ -72,10 +71,10 @@
             // 
             lblPts.Anchor = AnchorStyles.None;
             lblPts.AutoSize = true;
-            lblPts.Font = new Font("Segoe UI", 16F);
-            lblPts.Location = new Point(152, 51);
+            lblPts.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblPts.Location = new Point(277, 95);
             lblPts.Name = "lblPts";
-            lblPts.Size = new Size(72, 30);
+            lblPts.Size = new Size(98, 37);
             lblPts.TabIndex = 1;
             lblPts.Text = "points";
             // 
@@ -83,8 +82,8 @@
             // 
             lblResult.Anchor = AnchorStyles.None;
             lblResult.AutoSize = true;
-            lblResult.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblResult.Location = new Point(140, 3);
+            lblResult.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            lblResult.Location = new Point(278, 19);
             lblResult.Name = "lblResult";
             lblResult.Size = new Size(96, 37);
             lblResult.TabIndex = 0;
@@ -94,10 +93,10 @@
             // 
             btnProcede.Dock = DockStyle.Fill;
             btnProcede.Font = new Font("Segoe UI", 16F);
-            btnProcede.Location = new Point(30, 162);
-            btnProcede.Margin = new Padding(30, 30, 30, 10);
+            btnProcede.Location = new Point(100, 325);
+            btnProcede.Margin = new Padding(100, 20, 100, 20);
             btnProcede.Name = "btnProcede";
-            btnProcede.Size = new Size(317, 48);
+            btnProcede.Size = new Size(452, 38);
             btnProcede.TabIndex = 3;
             btnProcede.Text = "Procede";
             btnProcede.UseVisualStyleBackColor = true;
@@ -107,7 +106,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 220);
+            ClientSize = new Size(652, 383);
             ControlBox = false;
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;

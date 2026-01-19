@@ -13,14 +13,14 @@ namespace QzX
 {
     public partial class FrmMessage : Form
     {
-        public FrmMessage(string text, int points, string correctAns)
+        public FrmMessage(string text, int points, string correctAns, string exp)
         {
             InitializeComponent();
             Color[] colors = new Color[] { Color.Red, Color.Green, Color.Blue };
             lblResult.ForeColor = text == "Correct" ? Color.Green : Color.Red;
             lblResult.Text = text;
             lblPts.Text = $"{points} pts.";
-            lblCorrect.Text = text == "Correct" ? "" : correctAns;
+            lblCorrect.Text = text == "Correct" ? exp : $"Correct - {correctAns}. {exp} ";
         }
 
         private void btnProcede_Click(object sender, EventArgs e)

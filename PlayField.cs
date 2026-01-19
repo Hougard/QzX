@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace QzX
 {
@@ -25,9 +26,8 @@ namespace QzX
         private Question currentQuestion;
         private bool answerResult = false;
         private int[] playerPoints;
-
+        private bool formynResult = false;
         
-
         public PlayField(List<Player> players, List<string> playerNames, string statsPath)
         {
             InitializeComponent(); // обязательный вызов
@@ -201,7 +201,7 @@ namespace QzX
                 NextPlayer();
                     }
             string messag = answerResult ? "Correct" : "Incorrect";
-            using (var msg = new FrmMessage(messag, value, currentQuestion.CorrectAnswer.ToString()))
+            using (var msg = new FrmMessage(messag, value, currentQuestion.CorrectAnswer.ToString(), currentQuestion.Hint))
             {
                 msg.ShowDialog(this);
             }
@@ -210,7 +210,7 @@ namespace QzX
             tblTxtAns.Visible = false;
             tblThemes.Enabled = true;
         }
-        private void btnSkip_Click(object sender, EventArgs e)
+        /*private void btnSkip_Click(object sender, EventArgs e)
         {
             using (var msg = new FrmMessage("Incorrect", 0, currentQuestion.CorrectAnswerTxt.ToString()))
             {
@@ -224,8 +224,9 @@ namespace QzX
             txtBoxTextAns.Text = "";
                         
         }
+        */
 
-        private void btnTxtAns_Click(object sender, EventArgs e)
+       /* private void btnTxtAns_Click(object sender, EventArgs e)
         {
 
             string box = txtBoxTextAns.Text;
@@ -247,7 +248,6 @@ namespace QzX
                     return;
                 }
                 string messag = answerResult ? "Correct" : "Incorrect";
-                /*MessageBox.Show(msg + Environment.NewLine + $"{value} pts.");*/
                 using (var msg = new FrmMessage(messag, value, currentQuestion.CorrectAnswerTxt.ToString()))
                 {
                     msg.ShowDialog(this);
@@ -259,6 +259,36 @@ namespace QzX
                 txtBoxTextAns.Text = "";
 
             }
+
+        }
+        */
+        private void btnTextAns_Click(object sender, EventArgs e)
+        {
+            int value = currentQuestion?.Value ?? 0;
+            string messag = currentQuestion.CorrectAnswerTxt;
+            string exp = currentQuestion.Hint;
+            using (var f3 = new Formyn(messag, value, exp ))
+            {
+                if (f3.ShowDialog() == DialogResult.OK)
+                {
+                    formynResult = f3.ansResult;
+                }
+            }
+
+            if (formynResult)
+            {
+                playerPoints[currentPlayer] += value;
+                NextPlayer();
+            }
+            else
+            {
+                NextPlayer();
+            }
+
+            ShowTable();
+            tblVarAns.Visible = false;
+            tblTxtAns.Visible = false;
+            tblThemes.Enabled = true;
 
         }
 

@@ -35,6 +35,7 @@ namespace QzX
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayField));
             tableLayoutPanel3 = new TableLayoutPanel();
             Layer_4 = new TableLayoutPanel();
+            btnSaveStat = new Button();
             tblMainTable = new DataGridView();
             colPlayer = new DataGridViewTextBoxColumn();
             colPoints = new DataGridViewTextBoxColumn();
@@ -72,15 +73,12 @@ namespace QzX
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            btnSaveStat = new Button();
             picture = new PictureBox();
             tableLayoutPanel4 = new TableLayoutPanel();
             lblQuestion = new Label();
             panel1 = new Panel();
             tblTxtAns = new TableLayoutPanel();
             btnTxtAns = new Button();
-            txtBoxTextAns = new TextBox();
-            btnSkip = new Button();
             tblVarAns = new TableLayoutPanel();
             btnAns4 = new Button();
             btnAns2 = new Button();
@@ -133,6 +131,23 @@ namespace QzX
             Layer_4.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             Layer_4.Size = new Size(293, 581);
             Layer_4.TabIndex = 0;
+            // 
+            // btnSaveStat
+            // 
+            btnSaveStat.BackColor = SystemColors.GradientActiveCaption;
+            btnSaveStat.BackgroundImageLayout = ImageLayout.Zoom;
+            btnSaveStat.Dock = DockStyle.Fill;
+            btnSaveStat.FlatAppearance.BorderColor = Color.Black;
+            btnSaveStat.Font = new Font("Segoe UI", 20F);
+            btnSaveStat.Location = new Point(50, 456);
+            btnSaveStat.Margin = new Padding(50);
+            btnSaveStat.Name = "btnSaveStat";
+            btnSaveStat.Size = new Size(193, 75);
+            btnSaveStat.TabIndex = 51;
+            btnSaveStat.Text = "Save";
+            btnSaveStat.UseVisualStyleBackColor = false;
+            btnSaveStat.Visible = false;
+            btnSaveStat.Click += btnSaveStat_Click;
             // 
             // tblMainTable
             // 
@@ -614,23 +629,6 @@ namespace QzX
             label1.Text = "Themes";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnSaveStat
-            // 
-            btnSaveStat.BackColor = SystemColors.GradientActiveCaption;
-            btnSaveStat.BackgroundImageLayout = ImageLayout.Zoom;
-            btnSaveStat.Dock = DockStyle.Fill;
-            btnSaveStat.FlatAppearance.BorderColor = Color.Black;
-            btnSaveStat.Font = new Font("Segoe UI", 20F);
-            btnSaveStat.Location = new Point(50, 456);
-            btnSaveStat.Margin = new Padding(50);
-            btnSaveStat.Name = "btnSaveStat";
-            btnSaveStat.Size = new Size(193, 75);
-            btnSaveStat.TabIndex = 51;
-            btnSaveStat.Text = "Save";
-            btnSaveStat.UseVisualStyleBackColor = false;
-            btnSaveStat.Visible = false;
-            btnSaveStat.Click += btnSaveStat_Click;
-            // 
             // picture
             // 
             picture.BackColor = Color.AliceBlue;
@@ -689,15 +687,13 @@ namespace QzX
             tblTxtAns.ColumnCount = 1;
             tblTxtAns.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tblTxtAns.Controls.Add(btnTxtAns, 0, 1);
-            tblTxtAns.Controls.Add(txtBoxTextAns, 0, 0);
-            tblTxtAns.Controls.Add(btnSkip, 0, 2);
             tblTxtAns.Dock = DockStyle.Fill;
             tblTxtAns.Location = new Point(0, 0);
             tblTxtAns.Name = "tblTxtAns";
-            tblTxtAns.RowCount = 3;
+            tblTxtAns.RowCount = 2;
+            tblTxtAns.RowStyles.Add(new RowStyle(SizeType.Percent, 60F));
             tblTxtAns.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tblTxtAns.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tblTxtAns.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tblTxtAns.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tblTxtAns.Size = new Size(700, 347);
             tblTxtAns.TabIndex = 2;
             tblTxtAns.Visible = false;
@@ -706,36 +702,14 @@ namespace QzX
             // 
             btnTxtAns.Anchor = AnchorStyles.None;
             btnTxtAns.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Pixel);
-            btnTxtAns.Location = new Point(150, 212);
-            btnTxtAns.Margin = new Padding(0, 50, 0, 0);
+            btnTxtAns.Location = new Point(150, 258);
+            btnTxtAns.Margin = new Padding(0, 50, 0, 50);
             btnTxtAns.Name = "btnTxtAns";
-            btnTxtAns.Size = new Size(400, 40);
+            btnTxtAns.Size = new Size(400, 39);
             btnTxtAns.TabIndex = 1;
             btnTxtAns.Text = "SUBMIT";
             btnTxtAns.UseVisualStyleBackColor = true;
-            btnTxtAns.Click += btnTxtAns_Click;
-            // 
-            // txtBoxTextAns
-            // 
-            txtBoxTextAns.Anchor = AnchorStyles.None;
-            txtBoxTextAns.Font = new Font("Segoe UI", 16F);
-            txtBoxTextAns.Location = new Point(150, 66);
-            txtBoxTextAns.Margin = new Padding(0, 30, 0, 0);
-            txtBoxTextAns.Name = "txtBoxTextAns";
-            txtBoxTextAns.Size = new Size(400, 36);
-            txtBoxTextAns.TabIndex = 0;
-            // 
-            // btnSkip
-            // 
-            btnSkip.Anchor = AnchorStyles.None;
-            btnSkip.Font = new Font("Segoe UI", 10F);
-            btnSkip.Location = new Point(312, 298);
-            btnSkip.Name = "btnSkip";
-            btnSkip.Size = new Size(75, 27);
-            btnSkip.TabIndex = 2;
-            btnSkip.Text = "Skip";
-            btnSkip.UseVisualStyleBackColor = true;
-            btnSkip.Click += btnSkip_Click;
+            btnTxtAns.Click += btnTextAns_Click;
             // 
             // tblVarAns
             // 
@@ -875,7 +849,6 @@ namespace QzX
             tableLayoutPanel4.ResumeLayout(false);
             panel1.ResumeLayout(false);
             tblTxtAns.ResumeLayout(false);
-            tblTxtAns.PerformLayout();
             tblVarAns.ResumeLayout(false);
             Layer_1.ResumeLayout(false);
             Layer_2.ResumeLayout(false);
@@ -890,8 +863,6 @@ namespace QzX
         private Panel panel1;
         private TableLayoutPanel tblTxtAns;
         private Button btnTxtAns;
-        private TextBox txtBoxTextAns;
-        private Button btnSkip;
         private TableLayoutPanel tblVarAns;
         private Button btnAns4;
         private Button btnAns2;
